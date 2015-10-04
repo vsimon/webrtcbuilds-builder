@@ -1,14 +1,39 @@
 language: cpp
-sudo: true
+sudo: false
 compiler:
 - gcc
 os:
 - linux
-before_install:
-- unset CXX
-- unset CC
+addons:
+  apt:
+    packages:
+    - curl
+    - wget
+    - git
+    - python
+    - python-pip
+    - openjdk-7-jdk
+    - g++
+    - zip
+    - ruby
+    - libnss3-dev
+    - libasound2-dev
+    - libpulse-dev
+    - libjpeg-dev
+    - libxv-dev
+    - libgtk2.0-dev
+    - libexpat1-dev
+    - libxtst-dev
+    - libxss-dev
+    - libudev-dev
+    - libgconf2-dev
+    - libgnome-keyring-dev
+    - libpci-dev
+    - libgl1-mesa-dev
+    - lib32stdc++6
+    - lib32z1
 script:
-  - travis_retry ./build.sh
+  - ./build.sh
 env:
   global:
     - USE_PICKLE=1
